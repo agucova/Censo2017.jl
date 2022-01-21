@@ -1,0 +1,3 @@
+[deps]
+Censo2017 = "aad638e2-3187-4fee-b2eb-ae2274262183"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"

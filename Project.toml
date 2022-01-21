@@ -1,0 +1,13 @@
+name = "Censo2017"
+uuid = "aad638e2-3187-4fee-b2eb-ae2274262183"
+authors = ["Agustín Covarrubias <agucova@uc.cl> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.6"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
