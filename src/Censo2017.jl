@@ -1,6 +1,7 @@
 module Censo2017
 
 export query_census
+export get_full_census_table
 
 using DataDeps
 using JLD2
@@ -54,12 +55,11 @@ function create_and_index(db_path)
 end
 
 function query_census(query::AbstractString)
-    """Load a specific table from the 2017 chilean census.
-    Available tables: :comunas, :hogares, :personas, :provincias, :regiones, :variables, :variables_codificacion, :viviendas, :zonas
+    """Run a SQL query to the census database.
+    Available tables: comunas, hogares, personas, provincias, regiones, variables, variables_codificacion, viviendas, zonas
     """
-    @info datadep"Censo2017"
     try
-        con = DuckDB.connect("$(datadep"Censo2017")/duckdb.sql")
+        con = DuckDB.connect("$(datadep"Censo2017")/censo2017.db")
         return DuckDB.toDataFrame(DuckDB.execute(con, query))
     catch error
         if error isa DuckDB.DuckDBException
@@ -68,4 +68,18 @@ function query_census(query::AbstractString)
     end
 end
 
+function get_full_census_table(table_name::Symbol)
+    """Load a specific table from the 2017 chilean census.
+    Available tables: :comunas, :hogares, :personas, :provincias, :regiones, :variables, :variables_codificacion, :viviendas, :zonas
+    """
+    try
+        con = DuckDB.connect("$(datadep"Censo2017")/censo2017.db")
+        return DuckDB.toDataFrame(DuckDB.execute(con, "SELECT * from $(table_name)"))
+    catch error
+        if error isa DuckDB.DuckDBException
+            @error "Error while connecting to DuckDB or returning its results." error
+        end
+    end
 end
+
+end # module
