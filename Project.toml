@@ -3,6 +3,14 @@ uuid = "aad638e2-3187-4fee-b2eb-ae2274262183"
 authors = ["Agustín Covarrubias <agucova@uc.cl> and contributors"]
 version = "0.1.0"
 
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+Dagger = "d58978e5-989f-55fb-8d15-ea34adc7bf54"
+DataDeps = "124859b0-ceae-595e-8997-d05f6a7a8dfe"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+
 [compat]
 julia = "1.6"
 
