@@ -11,6 +11,7 @@ DuckDB = "d2f5444f-75bc-4fdf-ac35-56f514c445e1"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
 
 [compat]
+JLD2 = "0.4"
 julia = "1.6"
 
 [extras]
